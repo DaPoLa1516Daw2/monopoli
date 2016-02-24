@@ -5,6 +5,8 @@
  */
 package monopoli;
 
+import monopoli.Casillas.Casilla;
+
 /**
  *
  * @author .David
@@ -15,9 +17,9 @@ public class Jugador {
     private String ficha;
     private Casilla casillas[]; 
 
-    public Jugador(String nombre, int dinero, String ficha) {
+    public Jugador(String nombre, String ficha) {
         this.nombre = nombre;
-        this.dinero = dinero;
+        this.dinero = 1000;
         this.ficha = ficha;
     }
     

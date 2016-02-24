@@ -5,6 +5,7 @@
  */
 package monopoli;
 
+import monopoli.Casillas.*;
 import java.io.Serializable;
 
 /**
@@ -51,7 +52,7 @@ public class Partida implements Serializable {
     
     public void genTablero(){
         
-        casillas[0] = new Casilla(0,500, TipoCasilla.valueOf("Salida"));
+        casillas[0] = Casilla.getCasillaSalida("", 1000);
         casillas[1] = new Casilla(60,6, TipoCasilla.valueOf("Calle"));
         casillas[2] = new Casilla(0,0, TipoCasilla.valueOf("Suerte"));
         casillas[3] = new Casilla(60,6, TipoCasilla.valueOf("Calle"));
@@ -92,7 +93,4 @@ public class Partida implements Serializable {
         casillas[38] = new Casilla(0,-100, TipoCasilla.valueOf("Trampa"));
         casillas[39] = new Casilla(400,40, TipoCasilla.valueOf("Calle"));
     }
-
-    
-    
 }
