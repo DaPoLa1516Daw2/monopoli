@@ -19,7 +19,6 @@ public class Jugador {
 
     public Jugador(String nombre, String ficha) {
         this.nombre = nombre;
-        this.dinero = 1000;
         this.ficha = ficha;
     }
     
@@ -55,8 +54,5 @@ public class Jugador {
         } else {
             this.dinero =- aDinero;
         }
-    }
-    
-    
-    
+    }    
 }

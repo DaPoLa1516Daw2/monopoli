@@ -8,34 +8,14 @@ table {
     margin: 15px;
 }
 
-/*.esquina {
-    width: 106px;
-    height: 102px;
-}
-
-.vertical {
-    height: 100px;
-    width: 57px;
-}
-
-.horizontal {
-      height: 13px !important;
-      width: 100px;
-}
-
-td  {
-    height: 100px;
-    width: 100px;
-    border: 8px solid black;
-}
-*/
-
 .vertical {
     width: 56px;
+    height: 100px;
 }
 
 .horizontal {
     width: 100px;
+    height: 56px;
 }
 
 .f1 {
