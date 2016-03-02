@@ -15,7 +15,7 @@ public class Jugador {
     private String nombre;
     private int dinero;
     private String ficha;
-    private Casilla casillas[]; 
+    private Casilla casillas[];
 
     public Jugador(String nombre, String ficha) {
         this.nombre = nombre;

@@ -19,6 +19,7 @@ public class Partida implements Serializable {
     
     public Partida() {
         this.genTablero();
+        this.turno = 0;
     }
 
     public int getBote() {

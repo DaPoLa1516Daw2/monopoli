@@ -20,29 +20,34 @@
     </head>
     <body style="padding: 5px; margin-top: 10px;">
         <form method="POST" action="Juego/Entrar">
-            
-            <div class="col-sm-12 name"> 
-                <label class="col-sm-offset-4 col-sm-1 control-label" for="Nombre">Nombre: </label>
-                <div class="col-sm-3" > 
-                    <input type="text" class="form-control" name="Nombre"/>
+
+            <div class="col-sm-12">
+                <label for="nJugadores" class="control-label col-sm-1">NºJugadores:</label>
+                <div class="form-group col-sm-3" >
+                    <input type="number" class="form-control" value="2" name="nJugadores" min="2" max="8" />
                 </div>
             </div>
-            
-            
-            <div class="icons">
-                <img src="images/UserIcon1.png" alt="UserIcon1"/>
-                <img src="images/UserIcon2.png" alt="UserIcon2"/>
-                <img src="images/UserIcon3.png" alt="UserIcon3"/>
-                <img src="images/UserIcon4.png" alt="UserIcon4"/>
+
+
+            <div class="col-sm-12">
+
+                <label for="Nombre" class="control-label col-sm-1">Nombre: </label>
+
+                <div class="col-sm-3">
+                    <input type="text" class="form-control col-sm-1" name="Nombre"/>
+                </div>
+                
+                <img src="images/UserIcon1.png" class="col-sm-1" width="35" height="35" alt="UserIcon1"/>
+                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon1.png"/>
+                <img src="images/UserIcon2.png" class="col-sm-1"  width="35" height="35" alt="UserIcon2"/>
+                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon2.png"/>
+                <img src="images/UserIcon3.png" class="col-sm-1"  width="35" height="35" alt="UserIcon3"/>
+                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon3.png"/>
+                <img src="images/UserIcon4.png" class="col-sm-1"  width="35" height="35" alt="UserIcon4"/>
+                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon4.png"/>
             </div>
-            <div class="icons-value">
-                <input type="radio" name="UserIcon" value="images/UserIcon1.png"/>
-                <input type="radio" name="UserIcon" value="images/UserIcon2.png"/>
-                <input type="radio" name="UserIcon" value="images/UserIcon3.png"/>
-                <input type="radio" name="UserIcon" value="images/UserIcon4.png"/>
-            </div>
-            
-            <input type="submit" class="col-sm-offset-6 btn btn-default" value="Entrar"/>
+
+            <input type="submit" class="btn btn-default" value="Entrar"/>
         </form>
     </body>
 </html>

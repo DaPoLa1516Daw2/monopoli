@@ -27,16 +27,20 @@ public class InitPartida extends HttpServlet {
     protected void NewJugador(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         pMono.setJugador(new Jugador(request.getParameter("Nombre"), request.getParameter("UserIcon")));
-        RequestDispatcher rd = request.getRequestDispatcher("/tablero.jsp");
-        rd.forward(request, response);
+        
     }
     
     protected void route(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         if("/monopoli/Juego/Entrar".equals(request.getRequestURI())){
             NewJugador(request, response);
         }
-            
+        
+        request.setAttribute("Jugadores", pMono.getJugadores());
+        
+        RequestDispatcher rd = request.getRequestDispatcher("/tablero.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

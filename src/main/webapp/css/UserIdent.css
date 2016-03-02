@@ -1,20 +1,9 @@
-.icons {
-    text-align: center;
+label {
+    font-size: 16px;
+    padding-top: 5px;
 }
-
 img {
-    margin: 10px;
-}
-
-.icons-value {
-    text-align: center;
-}
-
-.icons-value input{
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-.name {
-    margin: 5px;
+    margin: 0;
+    padding: 0 !important;
+    width: 35px !important;
 }
