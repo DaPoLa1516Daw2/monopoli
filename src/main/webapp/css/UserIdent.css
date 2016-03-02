@@ -2,6 +2,10 @@
     text-align: center;
 }
 
+img {
+    margin: 10px;
+}
+
 .icons-value {
     text-align: center;
 }
@@ -9,4 +13,8 @@
 .icons-value input{
     margin-left: 60px;
     margin-right: 60px;
+}
+
+.name {
+    margin: 5px;
 }

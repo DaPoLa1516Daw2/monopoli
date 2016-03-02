@@ -9,10 +9,7 @@ import monopoli.Casillas.*;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-/**
- *
- * @author .David
- */
+
 public class Partida implements Serializable {
     
     private int bote;
