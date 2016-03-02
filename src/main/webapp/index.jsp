@@ -17,34 +17,47 @@
         <!--Latest compiled and minified JavaScript--> 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="css/UserIdent.css"/>
+        <script src="js/loadForm.js"></script>
     </head>
-    <body style="padding: 5px; margin-top: 10px;">
+    <body onload="init()" style="padding: 5px; margin-top: 10px;">
         <form method="POST" action="Juego/Entrar">
 
             <div class="col-sm-12">
                 <label for="nJugadores" class="control-label col-sm-1">NºJugadores:</label>
                 <div class="form-group col-sm-3" >
-                    <input type="number" class="form-control" value="2" name="nJugadores" min="2" max="8" />
+                    <input type="number" class="form-control" id="nJ" value="2" name="nJugadores" min="2" max="8" />
                 </div>
             </div>
 
-
-            <div class="col-sm-12">
-
-                <label for="Nombre" class="control-label col-sm-1">Nombre: </label>
-
-                <div class="col-sm-3">
-                    <input type="text" class="form-control col-sm-1" name="Nombre"/>
+            <div id="load">
+                <div class="col-sm-12">
+                    <label for="Nombre" class="control-label col-sm-1">Nombre: </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control col-sm-1" name="Nombre"/>
+                    </div>
+                    <img src="images/UserIcon1.png" class="col-sm-1" width="35" height="35" alt="UserIcon1"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon1.png"/>
+                    <img src="images/UserIcon2.png" class="col-sm-1"  width="35" height="35" alt="UserIcon2"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon2.png"/>
+                    <img src="images/UserIcon3.png" class="col-sm-1"  width="35" height="35" alt="UserIcon3"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon3.png"/>
+                    <img src="images/UserIcon4.png" class="col-sm-1"  width="35" height="35" alt="UserIcon4"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon4.png"/>
                 </div>
-                
-                <img src="images/UserIcon1.png" class="col-sm-1" width="35" height="35" alt="UserIcon1"/>
-                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon1.png"/>
-                <img src="images/UserIcon2.png" class="col-sm-1"  width="35" height="35" alt="UserIcon2"/>
-                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon2.png"/>
-                <img src="images/UserIcon3.png" class="col-sm-1"  width="35" height="35" alt="UserIcon3"/>
-                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon3.png"/>
-                <img src="images/UserIcon4.png" class="col-sm-1"  width="35" height="35" alt="UserIcon4"/>
-                <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon4.png"/>
+                <div class="col-sm-12">
+                    <label for="Nombre" class="control-label col-sm-1">Nombre: </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control col-sm-1" name="Nombre"/>
+                    </div>
+                    <img src="images/UserIcon1.png" class="col-sm-1" width="35" height="35" alt="UserIcon1"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon1.png"/>
+                    <img src="images/UserIcon2.png" class="col-sm-1"  width="35" height="35" alt="UserIcon2"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon2.png"/>
+                    <img src="images/UserIcon3.png" class="col-sm-1"  width="35" height="35" alt="UserIcon3"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon3.png"/>
+                    <img src="images/UserIcon4.png" class="col-sm-1"  width="35" height="35" alt="UserIcon4"/>
+                    <input type="radio" name="UserIcon" class="col-sm-1"  value="images/UserIcon4.png"/>
+                </div>
             </div>
 
             <input type="submit" class="btn btn-default" value="Entrar"/>
