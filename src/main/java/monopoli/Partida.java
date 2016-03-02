@@ -8,6 +8,7 @@ package monopoli;
 import monopoli.Casillas.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Random;
 
 
 public class Partida implements Serializable {
@@ -56,45 +57,64 @@ public class Partida implements Serializable {
     }
     
     public void genTablero(){
-        casillas[0] = Casilla.getCasillaSalida("", 1000);
-        casillas[1] = Casilla.getCasillaCalle("", 60, 6);
-        casillas[2] = Casilla.getCasillaSuerte("", 0);
-        casillas[3] = Casilla.getCasillaCalle("", 60, 6);
-        casillas[4] = Casilla.getCasillaTrampa("", 0);
-        casillas[5] = Casilla.getCasillaCalle("", 200, 20);
-        casillas[6] = Casilla.getCasillaCalle("", 100, 10);
-        casillas[7] = Casilla.getCasillaSuerte("", 0);
-        casillas[8] = Casilla.getCasillaCalle("", 100, 10);
-        casillas[9] = Casilla.getCasillaCalle("", 120, 12);
-        casillas[10] = Casilla.getCasillaCarcel("", 0);
-        casillas[11] = Casilla.getCasillaCalle("", 140, 14);
-        casillas[12] = Casilla.getCasillaCalle("", 150, 15);
-        casillas[13] = Casilla.getCasillaCalle("", 140, 14);
-        casillas[14] = Casilla.getCasillaCalle("", 160, 16);
-        casillas[15] = Casilla.getCasillaCalle("", 200, 20);
-        casillas[16] = Casilla.getCasillaCalle("", 180, 18);
-        casillas[17] = Casilla.getCasillaSuerte("", 0);
-        casillas[18] = Casilla.getCasillaCalle("", 180, 18);
-        casillas[19] = Casilla.getCasillaCalle("", 200, 20);
-        casillas[20] = Casilla.getCasillaBote("", 0);
-        casillas[21] = Casilla.getCasillaCalle("", 220, 22);
-        casillas[22] = Casilla.getCasillaSuerte("", 0);
-        casillas[23] = Casilla.getCasillaCalle("", 220, 22);
-        casillas[24] = Casilla.getCasillaCalle("", 240, 24);
-        casillas[25] = Casilla.getCasillaCalle("", 200, 20);
-        casillas[26] = Casilla.getCasillaCalle("", 260, 26);
-        casillas[27] = Casilla.getCasillaCalle("", 260, 26);
-        casillas[28] = Casilla.getCasillaCalle("", 150, 15);
-        casillas[29] = Casilla.getCasillaCalle("", 280, 28);
-        casillas[30] = Casilla.getCasillaCarcel("", 0);
-        casillas[31] = Casilla.getCasillaCalle("", 300, 30);
-        casillas[32] = Casilla.getCasillaCalle("", 300, 30);
-        casillas[33] = Casilla.getCasillaSuerte("", 0);
-        casillas[34] = Casilla.getCasillaCalle("", 320, 32);
-        casillas[35] = Casilla.getCasillaCalle("", 200, 20);
-        casillas[36] = Casilla.getCasillaSuerte("", 0);
-        casillas[37] = Casilla.getCasillaCalle("", 350, 35);
-        casillas[38] = Casilla.getCasillaTrampa("", 0);
-        casillas[39] = Casilla.getCasillaCalle("", 400, 40);
+        casillas[0] = Casilla.getCasillaSalida("C1", 1000);
+        casillas[1] = Casilla.getCasillaCalle("C2", 60, 6);
+        casillas[2] = Casilla.getCasillaSuerte("C3", 0);
+        casillas[3] = Casilla.getCasillaCalle("C4", 60, 6);
+        casillas[4] = Casilla.getCasillaTrampa("C5", 0);
+        casillas[5] = Casilla.getCasillaCalle("C6", 200, 20);
+        casillas[6] = Casilla.getCasillaCalle("C7", 100, 10);
+        casillas[7] = Casilla.getCasillaSuerte("C8", 0);
+        casillas[8] = Casilla.getCasillaCalle("C9", 100, 10);
+        casillas[9] = Casilla.getCasillaCalle("C10", 120, 12);
+        casillas[10] = Casilla.getCasillaCarcel("C11", 0);
+        casillas[11] = Casilla.getCasillaCalle("C12", 140, 14);
+        casillas[12] = Casilla.getCasillaCalle("C13", 150, 15);
+        casillas[13] = Casilla.getCasillaCalle("C14", 140, 14);
+        casillas[14] = Casilla.getCasillaCalle("C15", 160, 16);
+        casillas[15] = Casilla.getCasillaCalle("C16", 200, 20);
+        casillas[16] = Casilla.getCasillaCalle("C17", 180, 18);
+        casillas[17] = Casilla.getCasillaSuerte("C18", 0);
+        casillas[18] = Casilla.getCasillaCalle("C19", 180, 18);
+        casillas[19] = Casilla.getCasillaCalle("C20", 200, 20);
+        casillas[20] = Casilla.getCasillaBote("C21", 0);
+        casillas[21] = Casilla.getCasillaCalle("C22", 220, 22);
+        casillas[22] = Casilla.getCasillaSuerte("C23", 0);
+        casillas[23] = Casilla.getCasillaCalle("C24", 220, 22);
+        casillas[24] = Casilla.getCasillaCalle("C25", 240, 24);
+        casillas[25] = Casilla.getCasillaCalle("C26", 200, 20);
+        casillas[26] = Casilla.getCasillaCalle("C27", 260, 26);
+        casillas[27] = Casilla.getCasillaCalle("C28", 260, 26);
+        casillas[28] = Casilla.getCasillaCalle("C29", 150, 15);
+        casillas[29] = Casilla.getCasillaCalle("30", 280, 28);
+        casillas[30] = Casilla.getCasillaCarcel("C31", 0);
+        casillas[31] = Casilla.getCasillaCalle("C32", 300, 30);
+        casillas[32] = Casilla.getCasillaCalle("C33", 300, 30);
+        casillas[33] = Casilla.getCasillaSuerte("C34", 0);
+        casillas[34] = Casilla.getCasillaCalle("C35", 320, 32);
+        casillas[35] = Casilla.getCasillaCalle("C36", 200, 20);
+        casillas[36] = Casilla.getCasillaSuerte("C37", 0);
+        casillas[37] = Casilla.getCasillaCalle("C38", 350, 35);
+        casillas[38] = Casilla.getCasillaTrampa("C39", 0);
+        casillas[39] = Casilla.getCasillaCalle("C40", 400, 40);
+    }
+    
+    public int tiraDado() {
+         Random rnd = new Random();
+        return rnd.nextInt(10)+2;
+    }
+    
+    public int avanzaTurno() {
+        
+        if(turno == jugadores.size()-1){
+            turno=0;
+        }else {
+            turno++;
+        }
+        return turno;
+    } 
+    
+    public void deleteJugadores() {
+        jugadores.clear();
     }
 }

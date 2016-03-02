@@ -23,9 +23,7 @@
     <body>
         <div >
             <div class="jugadores">
-                <c:forEach var="Jugador" items="${Jugadores}">
-                    ${Jugador.nombre}
-                </c:forEach>
+                <ct:jugadores />
             </div>
             <div class="dinero">
 
@@ -84,8 +82,12 @@
                 <button class="btn btn-default" >Terminar Truno</button>
             </div>
             <div class="row" >
-                <button class="btn btn-warning" >Retirada</button>
+                <a class="btn btn-warning" href="/monopoli/Juego/Dado">Tirar Dado</a>
             </div>
+            <div class="row" >
+                <img src="/monopoli/images/${d12}_12.svg" width="100" height="100" />
+            </div>
+            
         </div>
     </body>
 </html>

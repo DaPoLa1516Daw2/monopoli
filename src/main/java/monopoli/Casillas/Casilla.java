@@ -5,6 +5,8 @@
  */
 package monopoli.Casillas;
 
+import java.util.ArrayList;
+import monopoli.Jugador;
 import monopoli.TipoCasilla;
 
 /**
@@ -13,6 +15,7 @@ import monopoli.TipoCasilla;
  */
 public abstract class Casilla {
     private String nombre;
+    private ArrayList<Jugador> jugadores = new ArrayList<Jugador>(); 
     //private int valor; //Comprar calle
     private int retibucion;
 
@@ -32,6 +35,25 @@ public abstract class Casilla {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    @Override
+    public String toString() {
+        return nombre + "\n"+
+                stringJugadores();
+    }
+    
+    private String stringJugadores() {
+     
+        String j = "";
+        
+        for(Jugador x: jugadores){
+            j = j+ x.getNombre()+ "\n";
+        }
+        
+        return j;
+    }
+    
+    
     
     //----------------------------------------
     //----------------------------------------

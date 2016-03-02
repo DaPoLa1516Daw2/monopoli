@@ -8,4 +8,8 @@
         <servlet-name>InitPartida</servlet-name>
         <url-pattern>/Juego/Entrar</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>InitPartida</servlet-name>
+        <url-pattern>/Juego/Dado</url-pattern>
+    </servlet-mapping>
 </web-app>

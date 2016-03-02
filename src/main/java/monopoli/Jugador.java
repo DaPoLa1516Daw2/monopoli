@@ -20,6 +20,7 @@ public class Jugador {
     public Jugador(String nombre, String ficha) {
         this.nombre = nombre;
         this.ficha = ficha;
+        this.dinero = 0;
     }
     
     

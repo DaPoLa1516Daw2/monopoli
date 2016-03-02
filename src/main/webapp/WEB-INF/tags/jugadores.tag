@@ -5,10 +5,8 @@
 --%>
 
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
-
-<%-- The list of normal or fragment attributes can be specified here: --%>
-<%@attribute name="message"%>
-
-<!-- any content can be specified here e.g.: -->
-<!--<h2>${message}</h2>-->
-hola
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:forEach var="Jugador" items="${Jugadores}">
+    <img src="/monopoli/${Jugador.ficha}" width="35" height="35" alt='${Jugador.nombre}' />
+    ${Jugador.nombre} : ${Jugador.dinero}
+</c:forEach>
