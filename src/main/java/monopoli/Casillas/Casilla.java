@@ -18,7 +18,7 @@ public abstract class Casilla {
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>(); 
     //private int valor; //Comprar calle
     private int retibucion;
-
+    
     public Casilla(String aNombre,int aRetibucion) {
         this.nombre = aNombre;
         this.retibucion = aRetibucion;
@@ -42,17 +42,25 @@ public abstract class Casilla {
                 stringJugadores();
     }
     
-    private String stringJugadores() {
-     
+    public String stringJugadores() {
         String j = "";
         
         for(Jugador x: jugadores){
-            j = j+ x.getNombre()+ "\n";
+            j +=  "\n"+x.getNombre();
         }
         
         return j;
     }
     
+//    public abstract int callback();
+    
+    public void setJugador(Jugador j) {
+        jugadores.add(j);
+    }
+    
+    public void removeJugador(Jugador j) {
+        jugadores.remove(j);
+    }
     
     
     //----------------------------------------

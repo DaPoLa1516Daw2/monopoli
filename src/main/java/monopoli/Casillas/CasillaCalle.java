@@ -36,6 +36,9 @@ public class CasillaCalle extends Casilla {
     public void setDueño(Jugador dueño) {
         this.dueño = dueño;
     }
+
+   
+    
         
         
 }

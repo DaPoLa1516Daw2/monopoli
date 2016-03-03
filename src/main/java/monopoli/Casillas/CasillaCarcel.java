@@ -13,4 +13,6 @@ public class CasillaCarcel extends Casilla {
     public CasillaCarcel(String aNombre, int aRetibucion) {
         super(aNombre, aRetibucion);
     }
+
+    
 }

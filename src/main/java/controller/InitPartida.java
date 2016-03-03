@@ -29,7 +29,8 @@ public class InitPartida extends HttpServlet {
         pMono.deleteJugadores();
         int n = Integer.parseInt(request.getParameter("nJugadores"));
         for(int i = 0; i < n; i++)
-            pMono.setJugador(new Jugador(request.getParameter("Nombre"+i), request.getParameter("UserIcon"+i)));       
+            pMono.setJugador(new Jugador(request.getParameter("Nombre"+i), request.getParameter("UserIcon"+i)));
+        pMono.initPartida();
     }
     
     protected void route(HttpServletRequest request, HttpServletResponse response)
@@ -41,6 +42,7 @@ public class InitPartida extends HttpServlet {
         
         if("/monopoli/Juego/Dado".equals(request.getRequestURI())){
             int tirada = pMono.tiraDado();
+            pMono.mover(tirada);
             request.setAttribute("tirada", tirada);
             request.setAttribute("d12", tirada);
         } else {
@@ -48,10 +50,12 @@ public class InitPartida extends HttpServlet {
         }
         
         if("/monopoli/Juego/avanzaTurno".equals(request.getRequestURI())) {
-            int turno = pMono.avanzaTurno();
-            request.setAttribute("turno", turno);
+            request.setAttribute("turno",pMono.avanzaTurno());
+        } else {
+            request.setAttribute("turno",pMono.getTurno());
         }
         
+        request.setAttribute("Casillas", pMono.getCasillas());
         request.setAttribute("Jugadores", pMono.getJugadores());
         
         RequestDispatcher rd = request.getRequestDispatcher("/tablero.jsp");

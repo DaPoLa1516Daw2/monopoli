@@ -8,7 +8,9 @@ package monopoli;
 import monopoli.Casillas.*;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Random;
+import java.util.Set;
 
 
 public class Partida implements Serializable {
@@ -99,9 +101,21 @@ public class Partida implements Serializable {
         casillas[39] = Casilla.getCasillaCalle("C40", 400, 40);
     }
     
+    public void initPartida() {
+        for(Jugador j : jugadores) {
+            casillas[0].setJugador(j);
+        }
+    }
+    
     public int tiraDado() {
-         Random rnd = new Random();
+        Random rnd = new Random();
         return rnd.nextInt(10)+2;
+    }
+    
+    public void mover(int tirada) {
+        casillas[jugadores.get(turno).getCasilla()].removeJugador(jugadores.get(turno));
+        jugadores.get(turno).setCasilla(tirada);
+        casillas[jugadores.get(turno).getCasilla()].setJugador(jugadores.get(turno));
     }
     
     public int avanzaTurno() {

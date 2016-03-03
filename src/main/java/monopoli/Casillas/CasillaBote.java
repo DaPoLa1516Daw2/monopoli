@@ -15,7 +15,9 @@ public class CasillaBote extends Casilla {
         super(aNombre, aRetibucion);
     }
     
-    public int getBote(int bote){
+    public int callback(int bote){
         return bote;
     }
+
+    
 }

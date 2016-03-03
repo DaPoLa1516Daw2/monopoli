@@ -16,11 +16,13 @@ public class Jugador {
     private int dinero;
     private String ficha;
     private Casilla casillas[];
+    private int casilla;
 
     public Jugador(String nombre, String ficha) {
         this.nombre = nombre;
         this.ficha = ficha;
         this.dinero = 0;
+        this.casilla = 0;
     }
     
     
@@ -39,6 +41,17 @@ public class Jugador {
 
     public int getDinero() {
         return dinero;
+    }
+
+    public int getCasilla() {
+        return casilla;
+    }
+
+    public void setCasilla(int casilla) {
+        this.casilla += casilla;
+        if(this.casilla > 40) {
+            this.casilla -= 40;
+        } 
     }
     
     

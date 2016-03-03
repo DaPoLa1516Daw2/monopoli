@@ -19,4 +19,6 @@ public class CasillaSuerte extends Casilla {
     public int trySuerte(){
         return Tarjeta.getTarjeta();
     }
+
+    
 }

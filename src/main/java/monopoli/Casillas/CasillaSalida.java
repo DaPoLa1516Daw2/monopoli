@@ -18,4 +18,6 @@ public class CasillaSalida extends Casilla {
     public int addDinero(){
         return 1000;
     }
+
+    
 }
