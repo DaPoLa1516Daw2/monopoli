@@ -31,7 +31,9 @@
         </div>
 
         <div class="col-sm-3">
-            Diputacion <button class="btn btn-primary" >Comprar Casa<i class="glyphicon glyphicon-home"></i></button> 12
+            <c:forEach var="calles" items="${jCasillas}" varStatus="loop">
+                Diputacion ${calles} <button class="btn btn-primary" >Comprar Casa<i class="glyphicon glyphicon-home"></i></button> 12
+            </c:forEach>
         </div>
 
         <div class="col-sm-7" >
@@ -53,7 +55,7 @@
                 
                 <tr>
                     <th class="horizontal" >${Casillas[19]}</th>
-                    <th class="horizontal" colspan="9"></th>
+                    <th class="horizontal" colspan="9">Bote: ${Bote}</th>
                     <th class="horizontal" >${Casillas[31]}</th>
                 </tr>
                 <tr>
@@ -117,7 +119,7 @@
 
         <div class="col-sm-2">
             <div class="row" >
-                <button class="btn btn-default" >Comprar Calle</button>
+                <a class="btn btn-default" href="/monopoli/Juego/compraCalle">Comprar Calle</a>
             </div>
             <div class="row" >
                 <a class="btn btn-default" href="/monopoli/Juego/avanzaTurno">Terminar Truno</a>

@@ -5,6 +5,7 @@
  */
 package monopoli.Casillas;
 
+import java.util.ArrayList;
 import monopoli.Jugador;
 
 /**
@@ -13,7 +14,7 @@ import monopoli.Jugador;
  */
 public class CasillaCalle extends Casilla {
     private int casas = 0;
-    private Jugador dueño;
+    private int dueño = -1;
     private int precio;
 
     public CasillaCalle(String aNombre, int aRetibucion, int aValor) {
@@ -29,16 +30,20 @@ public class CasillaCalle extends Casilla {
         this.casas =+ casas;
     }
 
-    public Jugador getDueño() {
+    public int getDueño() {
         return dueño;
     }
 
-    public void setDueño(Jugador dueño) {
+    public void setDueño(int dueño) {
         this.dueño = dueño;
     }
 
-   
-    
-        
-        
+    @Override
+    public ArrayList<Jugador> callback(ArrayList<Jugador> jugadores, int j) {
+        if(!(this.dueño < 0)){
+            jugadores.get(j).addDinero(this.casas*(precio/100*10), Boolean.FALSE);
+            jugadores.get(this.dueño).addDinero(this.casas*(precio/100*10), Boolean.TRUE);
+        }
+        return jugadores;
+    }
 }

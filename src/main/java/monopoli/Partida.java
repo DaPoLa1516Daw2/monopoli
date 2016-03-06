@@ -8,9 +8,7 @@ package monopoli;
 import monopoli.Casillas.*;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Random;
-import java.util.Set;
 
 
 public class Partida implements Serializable {
@@ -71,7 +69,7 @@ public class Partida implements Serializable {
         casillas[9] = Casilla.getCasillaCalle("C10", 120, 12);
         casillas[10] = Casilla.getCasillaCarcel("C11", 0);
         casillas[11] = Casilla.getCasillaCalle("C12", 140, 14);
-        casillas[12] = Casilla.getCasillaCalle("C13", 150, 15);
+        casillas[12] = Casilla.getCasillaTrampa("C13", 0);
         casillas[13] = Casilla.getCasillaCalle("C14", 140, 14);
         casillas[14] = Casilla.getCasillaCalle("C15", 160, 16);
         casillas[15] = Casilla.getCasillaCalle("C16", 200, 20);
@@ -87,7 +85,7 @@ public class Partida implements Serializable {
         casillas[25] = Casilla.getCasillaCalle("C26", 200, 20);
         casillas[26] = Casilla.getCasillaCalle("C27", 260, 26);
         casillas[27] = Casilla.getCasillaCalle("C28", 260, 26);
-        casillas[28] = Casilla.getCasillaCalle("C29", 150, 15);
+        casillas[28] = Casilla.getCasillaTrampa("C29", 0);
         casillas[29] = Casilla.getCasillaCalle("30", 280, 28);
         casillas[30] = Casilla.getCasillaCarcel("C31", 0);
         casillas[31] = Casilla.getCasillaCalle("C32", 300, 30);
@@ -104,6 +102,7 @@ public class Partida implements Serializable {
     public void initPartida() {
         for(Jugador j : jugadores) {
             casillas[0].setJugador(j);
+            j = casillas[0].callback(j);
         }
     }
     
@@ -116,6 +115,28 @@ public class Partida implements Serializable {
         casillas[jugadores.get(turno).getCasilla()].removeJugador(jugadores.get(turno));
         jugadores.get(turno).setCasilla(tirada);
         casillas[jugadores.get(turno).getCasilla()].setJugador(jugadores.get(turno));
+        if(jugadores.get(turno).getCasilla() == 0){
+            jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno)));
+        } else if (jugadores.get(turno).getCasilla() == 2 ||
+                jugadores.get(turno).getCasilla() ==  7 ||
+                jugadores.get(turno).getCasilla() == 17 ||
+                jugadores.get(turno).getCasilla() == 22 ||
+                jugadores.get(turno).getCasilla() == 33 ||
+                jugadores.get(turno).getCasilla() == 36) {
+            jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno)));
+        } else if (jugadores.get(turno).getCasilla() == 4 ||
+                jugadores.get(turno).getCasilla() == 12 ||
+                jugadores.get(turno).getCasilla() == 28 ||
+                jugadores.get(turno).getCasilla() ==  38){
+            int val = casillas[jugadores.get(turno).getCasilla()].callback();
+            this.bote += val;
+            jugadores.get(turno).addDinero(val, Boolean.FALSE);
+        } else if(jugadores.get(turno).getCasilla() == 30){
+            jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno),this.bote));
+            this.bote = 0;
+        }// else {
+//            jugadores = casillas[jugadores.get(turno).getCasilla()].callback(jugadores, turno);
+//        }
     }
     
     public int avanzaTurno() {
@@ -130,5 +151,12 @@ public class Partida implements Serializable {
     
     public void deleteJugadores() {
         jugadores.clear();
+    }
+
+    public void compraCasilla() {
+        if(casillas[jugadores.get(turno).getCasilla()].getDueño() == -1){
+            jugadores.get(turno).setCasillas(jugadores.get(turno).getCasilla());
+            ((CasillaCalle)casillas[jugadores.get(turno).getCasilla()]).setDueño(turno);
+        }
     }
 }

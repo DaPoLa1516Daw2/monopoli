@@ -7,7 +7,6 @@ package monopoli.Casillas;
 
 import java.util.ArrayList;
 import monopoli.Jugador;
-import monopoli.TipoCasilla;
 
 /**
  *
@@ -16,7 +15,6 @@ import monopoli.TipoCasilla;
 public abstract class Casilla {
     private String nombre;
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>(); 
-    //private int valor; //Comprar calle
     private int retibucion;
     
     public Casilla(String aNombre,int aRetibucion) {
@@ -52,8 +50,6 @@ public abstract class Casilla {
         return j;
     }
     
-//    public abstract int callback();
-    
     public void setJugador(Jugador j) {
         jugadores.add(j);
     }
@@ -84,4 +80,24 @@ public abstract class Casilla {
     public static CasillaTrampa getCasillaTrampa(String aNombre, int aRetibucion){
         return new CasillaTrampa(aNombre, aRetibucion);
     }   
+
+    public Jugador callback(Jugador j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int callback() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Jugador callback(Jugador get, int bote) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public ArrayList<Jugador> callback(ArrayList<Jugador> jugadores, int turno) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public int getDueño() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

@@ -20,6 +20,9 @@ public class CasillaTrampa extends Casilla {
     public int tryTrampa(){
         return rnd.nextInt(300);
     }
-
-   
+    
+    @Override
+    public int callback() {
+        return tryTrampa();
+    }
 }

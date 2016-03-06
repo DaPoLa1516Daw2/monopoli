@@ -55,6 +55,12 @@ public class InitPartida extends HttpServlet {
             request.setAttribute("turno",pMono.getTurno());
         }
         
+        if("/monopoli/Juego/compraCalle".equals(request.getRequestURI())) {
+            pMono.compraCasilla();
+        }
+        
+        request.setAttribute("jCasillas", pMono.getJugadores().get(pMono.getTurno()).getCasillas());
+        request.setAttribute("Bote", pMono.getBote());
         request.setAttribute("Casillas", pMono.getCasillas());
         request.setAttribute("Jugadores", pMono.getJugadores());
         

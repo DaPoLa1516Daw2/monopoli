@@ -5,6 +5,8 @@
  */
 package monopoli.Casillas;
 
+import monopoli.Jugador;
+
 /**
  *
  * @author oscar
@@ -15,9 +17,9 @@ public class CasillaBote extends Casilla {
         super(aNombre, aRetibucion);
     }
     
-    public int callback(int bote){
-        return bote;
+    @Override
+    public Jugador callback(Jugador j1, int bote) {
+        j1.addDinero(bote, Boolean.TRUE);
+        return j1;
     }
-
-    
 }

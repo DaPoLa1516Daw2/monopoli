@@ -5,6 +5,8 @@
  */
 package monopoli;
 
+import java.util.ArrayList;
+import java.util.List;
 import monopoli.Casillas.Casilla;
 
 /**
@@ -15,7 +17,7 @@ public class Jugador {
     private String nombre;
     private int dinero;
     private String ficha;
-    private Casilla casillas[];
+    private List<Integer> casillas;
     private int casilla;
 
     public Jugador(String nombre, String ficha) {
@@ -23,6 +25,7 @@ public class Jugador {
         this.ficha = ficha;
         this.dinero = 0;
         this.casilla = 0;
+        this.casillas = new ArrayList<Integer>();
     }
     
     
@@ -35,8 +38,8 @@ public class Jugador {
         return ficha;
     }
 
-    public Casilla[] getCasillas() {
-        return casillas;
+    public ArrayList<Integer> getCasillas() {
+        return (ArrayList<Integer>) casillas;
     }
 
     public int getDinero() {
@@ -54,19 +57,16 @@ public class Jugador {
         } 
     }
     
-    
-    
-
-    public void setCasillas(Casilla[] casilla) {
-        this.casillas = casilla;
+    public void setCasillas(int casilla) {
+        this.casillas.add(casilla);
     }
     
     
     public void addDinero(int aDinero, Boolean aMetodo){
         if(aMetodo) {
-            this.dinero =+ aDinero;
+            this.dinero += aDinero;
         } else {
-            this.dinero =- aDinero;
+            this.dinero -= aDinero;
         }
     }    
 }

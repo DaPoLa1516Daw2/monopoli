@@ -5,6 +5,8 @@
  */
 package monopoli.Casillas;
 
+import monopoli.Jugador;
+
 /**
  *
  * @author oscar
@@ -16,8 +18,11 @@ public class CasillaSalida extends Casilla {
     }
     
     public int addDinero(){
-        return 1000;
+        return 2000;
     }
 
-    
+    public Jugador callback(Jugador j1) {
+        j1.addDinero(addDinero(), Boolean.TRUE);
+        return j1;
+    }
 }
