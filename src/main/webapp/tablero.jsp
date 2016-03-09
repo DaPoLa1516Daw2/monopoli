@@ -31,8 +31,8 @@
         </div>
 
         <div class="col-sm-3">
-            <c:forEach var="calles" items="${jCasillas}" varStatus="loop">
-                Diputacion ${calles} <button class="btn btn-primary" >Comprar Casa<i class="glyphicon glyphicon-home"></i></button> 12
+            <c:forEach var="calle" items="${jCasillas}" varStatus="loop">
+                Diputacion ${calle} <button class="btn btn-primary" >Comprar Casa<i class="glyphicon glyphicon-home"></i></button> 12
             </c:forEach>
         </div>
 

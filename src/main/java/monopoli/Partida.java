@@ -10,14 +10,13 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Random;
 
-
 public class Partida implements Serializable {
-    
+
     private int bote;
     private int turno;
     private ArrayList<Jugador> jugadores = new ArrayList<Jugador>();
     private final Casilla casillas[] = new Casilla[40];
-    
+
     public Partida() {
         this.genTablero();
         this.turno = 0;
@@ -49,14 +48,15 @@ public class Partida implements Serializable {
     }
 
     public boolean setJugador(Jugador jugador) {
-        if(jugadores.size() == 8)
+        if (jugadores.size() == 8) {
             return false;
-        else
+        } else {
             this.jugadores.add(jugador);
-            return true;
+        }
+        return true;
     }
-    
-    public void genTablero(){
+
+    public void genTablero() {
         casillas[0] = Casilla.getCasillaSalida("C1", 1000);
         casillas[1] = Casilla.getCasillaCalle("C2", 60, 6);
         casillas[2] = Casilla.getCasillaSuerte("C3", 0);
@@ -98,65 +98,67 @@ public class Partida implements Serializable {
         casillas[38] = Casilla.getCasillaTrampa("C39", 0);
         casillas[39] = Casilla.getCasillaCalle("C40", 400, 40);
     }
-    
+
     public void initPartida() {
-        for(Jugador j : jugadores) {
+        for (Jugador j : jugadores) {
             casillas[0].setJugador(j);
             j = casillas[0].callback(j);
         }
     }
-    
+
     public int tiraDado() {
         Random rnd = new Random();
-        return rnd.nextInt(10)+2;
+        return rnd.nextInt(10) + 2;
     }
-    
+
     public void mover(int tirada) {
         casillas[jugadores.get(turno).getCasilla()].removeJugador(jugadores.get(turno));
         jugadores.get(turno).setCasilla(tirada);
         casillas[jugadores.get(turno).getCasilla()].setJugador(jugadores.get(turno));
-        if(jugadores.get(turno).getCasilla() == 0){
+        if (jugadores.get(turno).getCasilla() == 0) {
             jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno)));
-        } else if (jugadores.get(turno).getCasilla() == 2 ||
-                jugadores.get(turno).getCasilla() ==  7 ||
-                jugadores.get(turno).getCasilla() == 17 ||
-                jugadores.get(turno).getCasilla() == 22 ||
-                jugadores.get(turno).getCasilla() == 33 ||
-                jugadores.get(turno).getCasilla() == 36) {
+        } else if (jugadores.get(turno).getCasilla() == 2
+                || jugadores.get(turno).getCasilla() == 7
+                || jugadores.get(turno).getCasilla() == 17
+                || jugadores.get(turno).getCasilla() == 22
+                || jugadores.get(turno).getCasilla() == 33
+                || jugadores.get(turno).getCasilla() == 36) {
             jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno)));
-        } else if (jugadores.get(turno).getCasilla() == 4 ||
-                jugadores.get(turno).getCasilla() == 12 ||
-                jugadores.get(turno).getCasilla() == 28 ||
-                jugadores.get(turno).getCasilla() ==  38){
+        } else if (jugadores.get(turno).getCasilla() == 4
+                || jugadores.get(turno).getCasilla() == 12
+                || jugadores.get(turno).getCasilla() == 28
+                || jugadores.get(turno).getCasilla() == 38) {
             int val = casillas[jugadores.get(turno).getCasilla()].callback();
             this.bote += val;
             jugadores.get(turno).addDinero(val, Boolean.FALSE);
-        } else if(jugadores.get(turno).getCasilla() == 30){
-            jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno),this.bote));
+        } else if (jugadores.get(turno).getCasilla() == 20) {
+            jugadores.set(turno, casillas[jugadores.get(turno).getCasilla()].callback(jugadores.get(turno), this.bote));
             this.bote = 0;
+        } else if (jugadores.get(turno).getCasilla() == 30) {
+            jugadores.get(turno).setCasilla(20);
         }// else {
 //            jugadores = casillas[jugadores.get(turno).getCasilla()].callback(jugadores, turno);
 //        }
     }
-    
+
     public int avanzaTurno() {
-        
-        if(turno == jugadores.size()-1){
-            turno=0;
-        }else {
+        if (turno == jugadores.size() - 1) {
+            turno = 0;
+        } else {
             turno++;
         }
         return turno;
-    } 
-    
+    }
+
     public void deleteJugadores() {
         jugadores.clear();
     }
 
     public void compraCasilla() {
-        if(casillas[jugadores.get(turno).getCasilla()].getDueño() == -1){
+        if (((CasillaCalle) casillas[jugadores.get(turno).getCasilla()]).getDueño() == -1) {
             jugadores.get(turno).setCasillas(jugadores.get(turno).getCasilla());
-            ((CasillaCalle)casillas[jugadores.get(turno).getCasilla()]).setDueño(turno);
+            ((CasillaCalle) casillas[jugadores.get(turno).getCasilla()]).setDueño(turno);
+            jugadores.get(turno).addDinero(((CasillaCalle) casillas[jugadores.get(turno).getCasilla()]).getPrecio(),Boolean.FALSE);
         }
     }
 }

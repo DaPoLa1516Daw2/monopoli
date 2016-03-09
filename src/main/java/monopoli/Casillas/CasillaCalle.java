@@ -30,6 +30,10 @@ public class CasillaCalle extends Casilla {
         this.casas =+ casas;
     }
 
+    public int getPrecio() {
+        return precio;
+    }
+
     public int getDueño() {
         return dueño;
     }
